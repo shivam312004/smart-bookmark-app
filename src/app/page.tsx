@@ -3,14 +3,13 @@
 import { supabase } from "../lib/supabase";
 
 export default function Home() {
-
   const login = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
     });
 
     if (error) {
-      console.error(error);
+      console.error("Login Error:", error.message);
       alert(error.message);
     }
   };
